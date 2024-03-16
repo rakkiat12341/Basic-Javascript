@@ -175,8 +175,124 @@
 
 // การใช้ Loop for
 
-let count = 1;
+// let count = 1;
 
-for(count = 5 ; count <=5 ; count++){
-    console.log("Hello World ");
-}
+// for(count = 1 ; count <=5 ; count++){
+//     console.log("Hello World ");
+// }
+
+// for(let count = 10; count >=1; count--){
+//     console.log(count);
+// }
+
+// การใช้งาน loop dowhile
+
+// let count = 1;
+
+// do{
+// console.log(count);
+// count++;
+// }while(count <= 5)
+
+
+
+// for(let count = 1 ; count <=10; count++){
+//     console.log(count);
+//     if(count ==5)continue;
+    
+// }
+
+// function Say_hello() {
+//     console.log("Hello World");
+// }
+
+// function Say_bye() {
+//  for(let i =1; i<=10; i++){
+//      console.log("product no." + i);
+//  }
+// }
+
+// function message() {
+//     alert ("แจ้งเตือนโอนเงิน")
+// }
+
+// function displayName(){
+// document.write("rakkiat")
+// }
+
+
+// function plusNumber(x){
+//     console.log(x);
+// }
+
+// plusNumber(5);
+// plusNumber(10);
+
+// let number = 200;
+
+// plusNumber(number);
+
+// function fullName(Fname,Lname){
+//     console.log ("Fullname = ",Fname,"Lastname = ",Lname);
+// }
+
+// fullName("rakkiat","oatsawarat");
+
+// fullName("rakkiat");
+
+// function summation (x,y){
+//     let total = x+y;
+//     console.log("Total = ",total);
+// }
+
+
+// summation(987,20);
+
+
+// function getComputerIP(){
+//     return"127.0.0.1";
+// }
+
+// let myID =getComputerIP();
+
+// console.log(myID);
+
+// function getNumber(){
+//     return 100*5;
+// }
+
+// let total = getNumber();
+// console.log("ผลการคูณเลข = ",total);
+
+// function getMyaddress (){
+//     let city = "Bangkok";
+//     return city;
+// }
+
+// console.log("คุณอยู่ที่จังหวัด = ",getMyaddress());
+
+// function setSalary(salary){
+//     let bonus = 1000;
+//    return salary+bonus;
+// }
+
+// let a = setSalary(17000);
+// console.log ("Aรายได้ทั้งหมด = ",a)
+
+// let b = setSalary(20000);
+// console.log ("Bรายได้ทั้งหมด = ",b)
+
+// function getName(name,city){
+//     return name + city;
+// }
+
+// console.log (getName("ระยอง","บางมาด"))
+
+// function fullName(Fname,Lname,city="กรุงเทพ"){
+// console.log("ชื่อ = ",Fname,"นามสกุล = ",Lname,"อยู่ที่จังหวัด = ",city);
+// }
+
+// fullName("สมพง","กงๆ","ตราด");
+// fullName("ยาว","บ้านดอน","เชียงราย");
+// fullName("กล้อง","ดู");
+
