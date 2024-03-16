@@ -99,7 +99,84 @@
 // console.log("หลัง = ",x);
 
 // console.log(10-(2+1));
-let score = 40; 
+//  
 
-let scores = (score<50)?console.log("Fail") : console.log("Pass")
+// let age = 50;
 
+// if (age <=15){
+
+//     if(age== 15) {
+//         console.log(" ม.3");
+
+//     }else if (age === 14 ){
+//         console.log ("ม.2");
+//     }else if(age == 13){
+//         console.log("ม.1");
+//     }else {
+//         console.log("ประถมศึกษา");
+//     }
+// }else {
+//     console.log ("ปริญญาตรี");
+
+
+// let nubermonth = 2; // 0 = ปิดไฟ 1 = เปิดไฟ
+
+// let name ;
+// // if(status == 0) {
+// //     ligth="ปิดไฟ";
+// // } else if (status==1){
+// //     ligth = "เปิดไฟ";
+// // } else {
+// //     ligth = "ไม่ทราบสถานะไฟ";
+// // }
+
+// switch(nubermonth){
+//     case 1:name = "มากราคม";
+//     case 2 : name = "กุมภาพันธื"; break;
+//     case 3 : name = "มีนาคม";
+    
+// }
+
+// console.log(name);
+
+//โปรเเกรมคำนวนเลขคู่เลขคี่
+
+// let x = 23 ;
+
+// if(x%2 == 0 ){
+//     console.log("เลขคู่");
+// } else {
+//     console.log("เลขคี่");
+// }
+
+// โปรเเกรมเปรียบเทียบเลข
+
+// let x = 100, y = 100
+
+// if(x>y){
+//     console.log("x มีค่ามากที่สุด");
+// } else if(x<y){
+//     console.log("y มีค่ามากที่สุด");
+// } else if (x==y){
+//     console.log("x และ y มีค่าเท่ากัน");
+// }
+
+
+// การใช้ Loop while
+// let count = 1; // ตัวเเปลนับจำนวนรอบ
+
+// while(count <= 5) {
+//     console.log("ผลิตสินค้าชิ้นที่ " +count);
+//     if(count == 3){
+//         break;
+//     }
+//     count++;
+// }
+
+// การใช้ Loop for
+
+let count = 1;
+
+for(count = 5 ; count <=5 ; count++){
+    console.log("Hello World ");
+}
