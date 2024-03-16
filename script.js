@@ -296,3 +296,15 @@
 // fullName("ยาว","บ้านดอน","เชียงราย");
 // fullName("กล้อง","ดู");
 
+let a = 100; //gobal varibale
+console.log("Gobal variable = ",a);
+
+function display(){
+    let b = 50;
+    console.log("ตัวเเปล  = ",a);
+    console.log("ค่าอื่นๆ  = ",b);
+    
+}
+
+display();
+console.log("b outsite function = ",b);
