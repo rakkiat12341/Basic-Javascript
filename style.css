@@ -1,0 +1,25 @@
+.rak {
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.light {
+    background-color: orange;
+    padding: 20px;
+}
+
+.dark {
+    background-color: violet;
+    color: aliceblue;
+    padding: 20px;
+}
+
+.darkmode{
+    border: 1 px solid #fff;
+    background-color: black;
+    color: white;
+    padding: 30px;
+    margin: 10px;
+
+}
