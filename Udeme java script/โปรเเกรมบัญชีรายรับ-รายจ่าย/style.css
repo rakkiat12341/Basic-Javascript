@@ -57,10 +57,12 @@ h4{
 
 .money-plus{
 color:#2ecc71 ;
+font-size: 20px;
 }
 
 .money-minus{
     color: red;
+    font-size: 20px;
 }
 
 label{
@@ -108,8 +110,35 @@ input[type="text"],input[type="number"]{
 
 .list li.plus{
     border-right: 5px solid #2ecc71;
+    cursor: pointer;
 }
 
 .list li.minus{
     border-right: 5px solid red;
+    cursor: pointer;
 }
+
+.delete-btn{
+    cursor: pointer;
+    background-color: #e74c3c;
+    color: #FFF;
+    border: 0;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%,-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn{
+    opacity: 1;
+}
+
+.btn:focus,.delete-btn:focus{
+    outline: 0;
+}
+
