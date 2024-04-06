@@ -3,17 +3,24 @@ const calcuratorDisplay = document.querySelector('h1');
 const inputBtn = document.querySelectorAll('button'); //array
 const clearBtn = document.getElementById('clear-btn');
 
-//ตัวเลขที่ 1 เชื่อมด้วยตัวดำเนินกร ตัวเลขที่2 
-// 10 + 20 = 30
+const calulate = {
+    "/": (firstNumber,secondNumber) =>secondNumber!=0?firstNumber/secondNumber:"error",
+    "*": (firstNumber,secondNumber) =>firstNumber*secondNumber,
+    "-": (firstNumber,secondNumber) =>firstNumber-secondNumber,
+    "+": (firstNumber,secondNumber) =>firstNumber+secondNumber,
+    "=": (firstNumber,secondNumber) =>secondNumber,
+    
+}
 
 let fristValue = 0; // frist number
 let operatorValue = ''; //operator
-let secondValue = 0; // second number
 let waitForNext = false; //waiot user fill fristNuber and operator
+let secondValue = 0; // second number
 
 
 
-function setNuberValue(number) { 
+
+function setNumberValue(number) { 
     if(waitForNext){
         calcuratorDisplay.textContent = number;
         waitForNext = false;
@@ -23,23 +30,29 @@ function setNuberValue(number) {
     }
 
 }
-
 function callOperator(operator) {
     const currentValue = Number(calcuratorDisplay.textContent)
+    if(operatorValue && waitForNext){
+        operatorValue = operator;
+        return
+    }
 
     if (!fristValue) {
-        fristValue = currentValue;
+        fristValue = currentValue; //ค่าเริ่มต้น
     } else {
-        console.log(fristValue);
-        console.log(operatorValue);
-        console.log(currentValue);
-
+       const result = calulate[operatorValue](fristValue,currentValue);
+        calcuratorDisplay.textContent = result;
+        fristValue = result;
+        if(fristValue === 'error'){
+            resetAll();
+        }
     }
     operatorValue = operator;
     waitForNext = true;
 
 }
 function addDecimal(decimal) {
+    if(waitForNext) ;
     if (!calcuratorDisplay.textContent.includes('.')) {
         calcuratorDisplay.textContent = `${calcuratorDisplay.textContent}.`
     };
@@ -48,7 +61,7 @@ function addDecimal(decimal) {
 
 inputBtn.forEach((input) => {
     if (input.classList.length === 0) {
-        input.addEventListener('click', () => setNuberValue(input.value));
+        input.addEventListener('click', () => setNumberValue(input.value));
     } else if (input.classList.contains('operator')) {
         input.addEventListener('click', () => callOperator(input.value));
     } else if (input.classList.contains('decimal')) {
