@@ -10,7 +10,7 @@ const levelEL = document.getElementById('level');
 const gameoverEL = document.getElementById('gameover-container');
 
 
-const wordsExsam = ["ไก่", "หมู", "แมว", "มหาลัย", "ลำโพง", ];
+const wordsExsam = ["เชอร์รี่", "ทิป", "โยโมส", "กิ๊ก", "วอเเว", ];
 
 let randomText;
 let score = 0;
