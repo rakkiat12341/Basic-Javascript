@@ -32,14 +32,16 @@ prevBtn.addEventListener('click',()=>{
     loadSong(songs[index]);
     playSong();
 });
-nextBtn.addEventListener('click',()=>{
+nextBtn.addEventListener('click',nextSong)
+
+function nextSong(){
     index++;
     if(index>songs.length-1){
         index=0;
     }
     loadSong(songs[index]);
     playSong();
-})
+}
 
 loadSong(songs[index])
 
@@ -67,11 +69,13 @@ function updateProgress(e){
 
 };
 
-progress_container.addEventListener('click',setProgress);
+progress_container.addEventListener("click",setProcess);
 
-function setProgress(e){
-    const width= this.clientWidth;
-    const clickX = e.offsetX; 
-    const duration = audio.duration;
-    audio.currentTime = (clickX/width)*duration;
+function setProcess(e){
+const width =this.clientWidth;
+const clickx = e.offsetX;
+const duration = audio.duration;
+audio.currentTime=(clickx/width)*duration
 }
+
+audio.addEventListener("ended",nextSong)
