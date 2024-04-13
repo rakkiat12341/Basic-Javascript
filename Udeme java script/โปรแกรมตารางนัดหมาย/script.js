@@ -3,7 +3,7 @@ const inputContainer = document.getElementById('input-container');
 const datEl = document.getElementById('date-picker');
 const countDownEl = document.getElementById('countdown');
 
-const countDownTitleEl = document.getElementById('countdown-title');
+const countDownTitleEl = document.getElementById('count-title');
 const countButtonEl = document.getElementById('countdown-button');
 const timeEl = document.querySelectorAll('span');
 
@@ -57,17 +57,20 @@ function setUpTime(){
         const days = Math.floor(distance/day);
         const hours = Math.floor((distance%day)/hour);
         const minutes = Math.floor((distance%hour)/minute);
-        const seconds = Math.floor((distance%hour)/second);
+        const seconds = Math.floor((distance%minute)/second);
         inputContainer.hidden =true;
         if (distance<0) {
-            //หมดเวลา
-            alert('หมดเวลา')
+            countDownEl.hidden = true;
+            completeEL.hidden = false;
+            clearInterval(countDownActive);
+            completeElInfo.textContent = `${countDownTitle} วันที่ ${countDownDate}`;
         }else {
             //นับถอยหลัง
-            timeEl[0].textContent = `${days}/`;
-            timeEl[1].textContent = `${hours}/`;
-            timeEl[2].textContent = `${minutes}/`;
-            timeEl[3].textContent = `${seconds}/`;
+            countDownTitleEl.textContent = `${countDownTitle}`;
+            timeEl[0].textContent = `${days}`;
+            timeEl[1].textContent = `${hours}`;
+            timeEl[2].textContent = `${minutes}`;
+            timeEl[3].textContent = `${seconds}`;
             countDownEl.hidden = false;
             
         }
@@ -75,5 +78,18 @@ function setUpTime(){
 
 }
 
+function callDatainStore(){
+    if(localStorage.getItem("countDown")){
+        inputContainer.hidden = true;
+        saveCountDown = JSON.parse(localStorage.getItem("countDown"));
+        countDownTitle = saveCountDown.title;
+        countDownDate = saveCountDown.date;
+        conuntDownValue = new Date(countDownDate).getTime();
+        setUpTime();
+    }
+
+}
+
+callDatainStore();
 
 
