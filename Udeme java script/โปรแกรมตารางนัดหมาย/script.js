@@ -9,7 +9,7 @@ const timeEl = document.querySelectorAll('span');
 
 const completeEL = document.getElementById('complete');
 const completeElInfo = document.getElementById('complete-info');
-const completeBtnEl = document.getElementById('complete-button');
+const completeBtnEl = document.getElementById('complete-btn');
 
 // ตัวแปลสำหรับควบคุมการทำงาน 
 
@@ -89,7 +89,18 @@ function callDatainStore(){
     }
 
 }
-
+function reSet(){
+    localStorage.removeItem('countDown');
+    countDownEl.hidden = true;
+    completeEL.hidden = true;
+    inputContainer.hidden = false;
+    clearInterval(countDownActive);
+    countDownTitle = '';
+    countDownDate = '';
+}
 callDatainStore();
+countButtonEl.addEventListener('click',reSet)
+completeBtnEl.addEventListener('click',reSet)
+
 
 
