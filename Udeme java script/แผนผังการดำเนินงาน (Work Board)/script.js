@@ -12,6 +12,7 @@ drag_item.forEach((item) => {
     item.addEventListener('dragstart', onDragStart);
 });
 submitBtn.addEventListener('click',addItem);
+//รับค่าจาก input
 function addItem(item) {
     let itemText = input.value;
     const itemEl = document.createElement(`li`);
@@ -41,7 +42,7 @@ function onDragStart() {
     selectItem = this;
 }
 
-//รับค่าจาก input
+
 
 
 
