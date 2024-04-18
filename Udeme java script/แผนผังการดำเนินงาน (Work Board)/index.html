@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แผนผังการดำเนินงาน (Work Board)</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <h1 class="main-title">แผนผังการทำงาน</h1>
+    <div class="drag-container">
+        <ul class="drag-list">
+            <!-- category 1 -->
+            <li class="drag-column backlog-column">
+                <span class="header">
+                    <h1>งานที่ค้างอยู่</h1>
+                </span>
+                <div id="backlog-content" class="custom-scroll">
+                    <ul class="drag-item-list" id="backlog-list">
+                        <li class="drag-item" draggable="true">ออกเเบบanimation</li>
+                        <li class="drag-item" draggable="true">เสนองอบประมาณ</li>
+                        <li class="drag-item" draggable="true">ทำงานบ้าน</li>
+                    </ul>
+                </div>
+            </li>
+            <!-- category 2 -->
+            <li class="drag-column progress-column">
+                <span class="header">
+                    <h1>กำลังดำเนินการ</h1>
+                </span>
+                <div id="progress-content" class="custom-scroll">
+                    <ul class="drag-item-list" id="progress-list">
+                        <li class="drag-item" draggable="true">ออกเเบบlogo</li>
+                        <li class="drag-item" draggable="true">ตัดต่อ</li>
+                        <li class="drag-item" draggable="true">เก็บเงิน</li>
+                    </ul>
+                </div>
+            </li>
+            <!-- category 3 -->
+            <li class="drag-column complete-column">
+                <span class="header">
+                    <h1>สำเร็จ</h1>
+                </span>
+                <div id="complete-content" class="custom-scroll">
+                    <ul class="drag-item-list" id="complete-list">
+                        
+                    </ul>
+                </div>
+            </li>
+            <!-- category 3 -->
+            <li class="drag-column reject-column">
+                <span class="header">
+                    <h1>ไม่ผ่าน</h1>
+                </span>
+                <div id="reject-content" class="custom-scroll">
+                    <ul class="drag-item-list" id="reject-list">
+                        
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="input-item">
+        <div class="input-box"><input type="text" id="input" placeholder="เพิ่มรายการที่ต้องการ">
+            <button type="submit" id="btn-submit-item">เพิ่ม</button>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
