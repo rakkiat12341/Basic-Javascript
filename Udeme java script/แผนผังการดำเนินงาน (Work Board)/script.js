@@ -8,40 +8,45 @@ const submitBtn = document.querySelector('#btn-submit-item')
 
 //รายการ
 let selectItem;
+let inputItemText;
 drag_item.forEach((item) => {
     item.addEventListener('dragstart', onDragStart);
 });
-submitBtn.addEventListener('click',addItem);
+submitBtn.addEventListener('click', addItem);
 //รับค่าจาก input
 function addItem(item) {
     let itemText = input.value;
+    let rawItem = input;
     const itemEl = document.createElement(`li`);
     itemEl.classList.add('drag-item');
-    itemEl.setAttribute('draggable','true')
-    itemEl.textContent=itemText;
+    itemEl.setAttribute('draggable', 'true')
+    itemEl.textContent = itemText;
     ulEl.append(itemEl);
     input.value = '';
+    inputItemText = itemEl;
+
 }
 
 //หมวดหมู่
-drag_list.forEach((list)=>{
-    list.addEventListener('dragover',(e)=>{
+drag_list.forEach((list) => {
+    list.addEventListener('dragover', (e) => {
         e.preventDefault();
     });
-    list.addEventListener('dragenter',(e)=>{
+    list.addEventListener('dragenter', (e) => {
         e.preventDefault();
     });
-    list.addEventListener('drop',onDrop)
+    list.addEventListener('drop', onDrop)
 })
-
-function onDrop(){
-    this.append(selectItem);
-    selectItem=null;
-}
 function onDragStart() {
     selectItem = this;
+    inputItemText = this;
+
 }
 
+function onDrop() {
+    this.append(inputItemText);
+    selectItem = null;
+}
 
 
 
