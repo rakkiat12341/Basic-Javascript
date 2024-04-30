@@ -1,19 +1,33 @@
 const apiKey = 'f51a5baaf7e5aca20094e95d93bee133'
 const movieYears = document.querySelector('#years');
 const nextBtn = document.getElementById('next');
-let pages = '1';
-let years = "2024";
+let value =movieYears.value;
 let posterKey;
+let years;
 const content = document.querySelector('#content');
-const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${pages}&sort_by=popularity.desc&year=${years}`
+const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${value}&sort_by=popularity.desc&year=${years}`
 
-
-movieYears.addEventListener('change', selectYear);
-function selectYear() {
+movieYears.addEventListener(`change`, selectYear.bind(this), false);
+/*function selectYear(e) {
     years = movieYears.value;
     const updateUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${pages}&sort_by=popularity.desc&year=${years}`
     displayMovie(updateUrl)
+    console.log(updateUrl);
+    var text = e.options[e.selectedIndex].text;
+    console.log(text)
+};*/
+
+function selectYear(e) {
+    const select = e.target;
+    const desc = select.selectedOptions[0].text;
+    value = select.value;
+    years = desc;
+    console.log("text: " + desc + " value: " + value)
+    const updateUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${value}&sort_by=popularity.desc&year=${desc}`
+    displayMovie(updateUrl);
+    console.log(updateUrl);
 };
+
 
 async function displayMovie(url) {
     const res = await fetch(url);
@@ -28,7 +42,7 @@ async function displayMovie(url) {
         const img = document.createElement('img');
         const yearEL = document.createElement('p');
         yearEL.classList.add('year-text');
-        const yearOfMovie = data.release_date.substring(0,4);
+        const yearOfMovie = data.release_date.substring(0, 4);
         let posterKey = data.poster_path;
         const urlPoster = `https://image.tmdb.org/t/p/w500${posterKey}`
         yearEL.innerText = yearOfMovie;
@@ -38,23 +52,26 @@ async function displayMovie(url) {
         content.appendChild(movieEl);
         img.setAttribute('src', urlPoster);
         movieEl.appendChild(img);
-        
+
     });
 }
 
 nextBtn.addEventListener('click', nextPage);
 function nextPage() {
-    pages++;
-    displayMovie(url);
-    selectYear();
+    value++;
+    let urlForNext = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${value}&sort_by=popularity.desc&year=${years}`
+    displayMovie(urlForNext);
+    console.log(urlForNext);
 }
 
 document.getElementById('prevoius').addEventListener('click', prevPage);
 
 function prevPage() {
-    pages--;
-    displayMovie(url);
-    selectYear();
+    value--;
+    let urlForNext = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${value}&sort_by=popularity.desc&year=${years}`
+    displayMovie(urlForNext);
+    console.log(urlForNext);
+
 }
 
 displayMovie(url);
