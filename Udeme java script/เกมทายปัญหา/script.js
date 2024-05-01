@@ -11,31 +11,18 @@ const clearBtn = document.getElementById('clear');
 const inputQestionEl = document.getElementById('qestion');
 const inputAnswer = document.getElementById('answer');
 
+const addCard = document.getElementById('add-card')
+
 let currentActiveCard = 0;
 let cardEl = [];//เก็บคำถามทั้งหมด
-const cardData = [
-    {
-        qusetion: "1+1",
-        answer: "2"
-    },
-    {
-        qusetion: "2+2",
-        answer: "4"
-    },
-    {
-        qusetion: "3+3",
-        answer: "6"
-    },
-    {
-        qusetion: "8+3",
-        answer: "11"
-    }
-];
+const cardData = GetcardData();
+
 
 function createCard() {
     cardData.forEach((data, index) => {
         createSingleCard(data, index)
     });
+
 };
 
 function createSingleCard(data, index) {
@@ -61,8 +48,8 @@ function createSingleCard(data, index) {
     updateCurrentQuestion();
 }
 
-function  updateCurrentQuestion() {
-    currentQestion.innerText = `${currentActiveCard+1}/${cardEl.length}`
+function updateCurrentQuestion() {
+    currentQestion.innerText = `${currentActiveCard + 1}/${cardEl.length}`;
 }
 
 //สลับคำถามเเละคำตอบโดยใช้วิธี Flip
@@ -72,29 +59,56 @@ function  updateCurrentQuestion() {
 addQestionBtn.addEventListener('click', () => addContainer.classList.add('show'))
 hiddenBtn.addEventListener('click', () => addContainer.classList.remove('show'))
 
-nextBtn.addEventListener('click',()=>{
+nextBtn.addEventListener('click', () => {
     cardEl[currentActiveCard].className = 'card left';
-    currentActiveCard= currentActiveCard+1;
-    if(currentActiveCard>cardEl.length-1){
-        currentActiveCard=cardEl.length-1;
+    currentActiveCard = currentActiveCard + 1;
+    if (currentActiveCard > cardEl.length - 1) {
+        currentActiveCard = cardEl.length - 1;
     };
     cardEl[currentActiveCard].className = 'card active';
     updateCurrentQuestion();
 });
 
-prevBtn.addEventListener('click',()=>{
+prevBtn.addEventListener('click', () => {
     cardEl[currentActiveCard].className = 'card right';
-    currentActiveCard= currentActiveCard-1;
-    if(currentActiveCard<0){
-        currentActiveCard=0;
+    currentActiveCard = currentActiveCard - 1;
+    if (currentActiveCard < 0) {
+        currentActiveCard = 0;
     };
     cardEl[currentActiveCard].className = 'card active';
     updateCurrentQuestion();
 })
 
+addCard.addEventListener('click', () => {
+    const qusetion = inputQestionEl.value;
+    const answer = inputAnswer.value;
 
+    if (qusetion.trim() && answer.trim()) {
+        const newCard = { qusetion, answer };
+        createSingleCard(newCard);
+        inputQestionEl.value = '';
+        inputAnswer.value = '';
+        addContainer.classList.remove('show');
+        cardData.push(newCard);
+        setCardData(cardData)
+    };
 
+})
+function setCardData(cards) {
+    localStorage.setItem('cards', JSON.stringify(cards));
+    window.location.reload();
+};
 
+function GetcardData() {
+    const cards = JSON.parse(localStorage.getItem('cards'))
+    return cards === null ? [] : cards;
+};
+
+clearBtn.addEventListener('click',()=>{
+    localStorage.clear();
+    cardContainer.innerHTML = '';
+    window.location.reload();
+});
 
 
 createCard();
