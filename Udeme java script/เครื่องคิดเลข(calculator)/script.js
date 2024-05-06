@@ -1,7 +1,7 @@
 //operator
-const calcuratorDisplay = document.querySelector('h1');
-const inputBtn = document.querySelectorAll('button'); //array
-const clearBtn = document.getElementById('clear-btn');
+const calcuratorDisplay = document.querySelector('h1');//ตัวเลขแสดงผล
+const inputBtn = document.querySelectorAll('button'); //ปุ่มทั้งหมด
+const clearBtn = document.getElementById('clear-btn');//ปุ่มclear
 
 const calulate = {
     "/": (firstNumber,secondNumber) =>secondNumber!=0?firstNumber/secondNumber:"error",

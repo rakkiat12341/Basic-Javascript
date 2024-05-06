@@ -1,6 +1,6 @@
 const count = 10;
 const apikey = 'NZbCv6ENRh03LX7CuZAiU8y1grRCakXcWhO7Q1tzjMQ';
-// const apiurl = `https://api.unsplash.com/photos/random?client_id=${apikey}&count=${count}`;
+const apiurl = `https://api.unsplash.com/photos/random?client_id=${apikey}&count=${count}`;
 
 
 const imageContainer = document.getElementById('img-container');

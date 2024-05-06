@@ -46,7 +46,7 @@ async function displayMovie(url) {
         let posterKey = data.poster_path;
         const urlPoster = `https://image.tmdb.org/t/p/w500${posterKey}`
         yearEL.innerText = yearOfMovie;
-        title.innerHTML = `${data.title.substring(0, 24)}`;
+        title.innerHTML = `${data.title.substring(0, 15)}`;
         movieEl.appendChild(yearEL);
         movieEl.appendChild(title);
         content.appendChild(movieEl);
