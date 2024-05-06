@@ -14,7 +14,7 @@ const calulate = {
 
 let fristValue = 0; // frist number
 let operatorValue = ''; //operator
-let waitForNext = false; //waiot user fill fristNuber and operator
+let waitForNext = false; //waiot user fill fristNumber and operator
 let secondValue = 0; // second number
 
 
