@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+
+.container {
+    background-image: url(263951429_2094729624010276_3757409584882223922_n.jpg);
+    width: 400px;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+i{
+    position: absolute;
+    font-size: 60px;
+    left: 46%;
+    top: 50%;
+    opacity: 0;
+    
+}
+
+
